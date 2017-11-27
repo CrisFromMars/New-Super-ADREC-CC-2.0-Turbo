@@ -16,10 +16,22 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
+/**
+ * Clase ventana, que hace que todo funcione, tanto botones, funciones y logica,
+ * como conexión a base de datos.
+ *
+ * @author CxMars
+ * @version 2.0
+ */
 public class Ventana extends javax.swing.JFrame {
 
     DefaultTableModel model;
 
+    /**
+     * constructor principal para inicializar todos los componentes, así como
+     * los metodos limpiar, bloquear y cargar los cuales se inicializan desde
+     * que arranca la aplicación
+     */
     public Ventana() {
         initComponents();
         limpiar();
@@ -27,6 +39,12 @@ public class Ventana extends javax.swing.JFrame {
         cargar("");
     }
 
+    /**
+     * Metodo que carga la tabla de la base de datos en la aplicación.
+     *
+     * @param valor parametro de tipo String que obtiene como valor el nombre
+     * del alumno, o materia que el usuario desea buscar en la tabla.
+     */
     void cargar(String valor) {
 
         String[] titulos = {"iD", "Nombre", "Materia", "Calif 1", "Calif 2"};
@@ -57,6 +75,9 @@ public class Ventana extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Metodo que limpia las cajas de texto cuando se inicializa la aplicación.
+     */
     void limpiar() {
         txtNomb.setText("");
         txtMate.setText("");
@@ -64,6 +85,10 @@ public class Ventana extends javax.swing.JFrame {
         txtPar2.setText("");
     }
 
+    /**
+     * Metodo que bloquea las cajas de texto y botones cuando no se están
+     * usando.
+     */
     void bloquear() {
         txtNomb.setEnabled(false);
         txtMate.setEnabled(false);
@@ -74,6 +99,10 @@ public class Ventana extends javax.swing.JFrame {
         btnCancelar.setEnabled(false);
     }
 
+    /**
+     * Metodo que desbloquea las cajas de texto y botones cuando se están
+     * usando.
+     */
     void desbloquear() {
         txtNomb.setEnabled(true);
         txtMate.setEnabled(true);
@@ -477,11 +506,22 @@ public class Ventana extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    double cali1, cali2, cali3, resu;
-    int aux;
-    String nomb, mate;
-    private void btnCalcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcActionPerformed
 
+    /**
+     * @param cali1 variable que almacena la primer calificación.
+     * @param cali2 variable que almacena la segunda calificación.
+     * @param cali3 variable que almacena la calificación generada por cali1 y
+     * cali2.
+     * @param resu variable que alimina digitos extra de cali3.
+     * @param nomb variable que recibe el nombre del alumno de la caja de texto
+     * txtNomb.
+     * @param mate variable que recibe el nombre de la materia de la caja de
+     * texto txtMate.
+     */
+    private void btnCalcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcActionPerformed
+        double cali1, cali2, cali3, resu;
+        int aux;
+        String nomb, mate;
         nomb = txtNomb.getText();
         mate = txtMate.getText();
         cali1 = 0.3 * Double.parseDouble(txtPar1.getText());
@@ -540,6 +580,10 @@ public class Ventana extends javax.swing.JFrame {
         txtNomb.requestFocus();
     }//GEN-LAST:event_btnNuevoActionPerformed
 
+    /**
+     * Acción que hara la aplicación cuando reciba clic en el botón guardar,
+     * basicamente insertar los datos a la base de datos.
+     */
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
 
         // TODO add your handling code here:
@@ -622,9 +666,12 @@ public class Ventana extends javax.swing.JFrame {
     private void btnReseProfesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReseProfesActionPerformed
 
         // Interfaces y clases abstractas
-        luis ca1 = new luis() {};
-        gameros ca2 = new gameros() {};
-        blanco ca3 = new blanco() {};
+        luis ca1 = new luis() {
+        };
+        gameros ca2 = new gameros() {
+        };
+        blanco ca3 = new blanco() {
+        };
 
         ca1.reprueba();
         ca1.asistencia();
@@ -650,14 +697,12 @@ public class Ventana extends javax.swing.JFrame {
         ca4.tarea();
         System.out.println("--");
 
-        
         // Polimorfismo 
         ampaPoli ca5 = new amparito();
-        
+
         ampaPoli.reprueba();
         ampaPoli.asistencia();
         ampaPoli.tarea();
-        
 
 
     }//GEN-LAST:event_btnReseProfesActionPerformed
