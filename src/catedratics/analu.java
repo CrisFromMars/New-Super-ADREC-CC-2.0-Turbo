@@ -1,6 +1,6 @@
 package catedratics;
 
-import GUI.Ventana;
+import vista.Ventana;
 
 /**
  * clase analu que se usara para uso de herencia
