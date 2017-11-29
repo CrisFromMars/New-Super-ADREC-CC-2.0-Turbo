@@ -79,9 +79,9 @@ public class controladorVentana implements ActionListener {
             cali2 = 0.3 * Double.parseDouble(vistaVentana.txtPar2.getText());
 
             if ((cali1 < 0 || cali1 > 10)) {
-                vistaVentana.lblResu.setText("Introduzca valores entre '0' y '10'");
+                vistaVentana.lblResul.setText("Introduzca valores entre '0' y '10'");
             } else if (cali2 < 0 || cali2 > 10) {
-                vistaVentana.lblResu.setText("Introduzca valores entre '0' y '10'");
+                vistaVentana.lblResul.setText("Introduzca valores entre '0' y '10'");
             } else {
                 cali3 = (6 - (cali1 + cali2)) / 0.4;
 
@@ -95,12 +95,12 @@ public class controladorVentana implements ActionListener {
                     datos.add(nomb);
 
                     datos.stream().forEach(d
-                            -> vistaVentana.lblResu.setText(nomb + " sacaste " + vistaVentana.txtPar1.getText() + " y " + vistaVentana.txtPar2.getText() + ",necesitas un " + resu + " para aprobar " + mate + ".")
+                            -> vistaVentana.lblResul.setText(nomb + " sacaste " + vistaVentana.txtPar1.getText() + " y " + vistaVentana.txtPar2.getText() + ",necesitas un " + resu + " para aprobar " + mate + ".")
                     );
                 } else if (resu == 0) {
-                    vistaVentana.lblResu.setText("Ya has aprobado el semestre ;)");
+                    vistaVentana.lblResul.setText("Ya has aprobado el semestre ;)");
                 } else if (resu > 10) {
-                    vistaVentana.lblResu.setText("Lo sentimos, Ya no puedes aprobar el semestre :(");
+                    vistaVentana.lblResul.setText("Lo sentimos, Ya no puedes aprobar el semestre :(");
                 }
             }
 
