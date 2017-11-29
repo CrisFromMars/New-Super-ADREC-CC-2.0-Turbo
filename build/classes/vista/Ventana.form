@@ -102,10 +102,7 @@
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="btnCalc" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="17" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="btnCalc" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="txtNomb" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                               <Component id="txtPar1" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                               <Component id="txtMate" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
@@ -568,6 +565,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnProfesActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="btnReseProfes">
           <Properties>
@@ -576,6 +576,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnReseProfesActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>

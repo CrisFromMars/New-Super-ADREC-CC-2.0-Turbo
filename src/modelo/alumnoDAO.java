@@ -2,9 +2,7 @@ package modelo;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -12,16 +10,21 @@ import javax.swing.table.DefaultTableModel;
 import vista.Ventana;
 
 /**
+ * DAO de alumno para enviar a la DB
  *
  * @author CxMars
  */
-public class alumnoDAO extends Ventana{
-    
+public class alumnoDAO extends Ventana {
+
     DefaultTableModel model;
-    
-    public void insertarAlumno(){
-    
-    conectar cc = new conectar();
+
+    /**
+     * metodo insertarAlumno el cual realiza una conexión a la DB, para luego
+     * tomar datos de los campos de texto y agregarlo como fila
+     */
+    public void insertarAlumno() {
+
+        conectar cc = new conectar();
         Connection cn = cc.conexion();
         String nom, mate, par1, par2;
         String sql = "";
@@ -47,5 +50,5 @@ public class alumnoDAO extends Ventana{
             Logger.getLogger(Ventana.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
 }

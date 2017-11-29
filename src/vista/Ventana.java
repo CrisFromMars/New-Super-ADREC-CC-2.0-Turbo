@@ -1,30 +1,12 @@
 package vista;
 
-import modelo.catedratics.ampaPoli;
-import modelo.catedratics.amparito;
-import modelo.catedratics.analu;
-import modelo.catedratics.blanco;
-import modelo.catedratics.gameros;
-import modelo.catedratics.luis;
-import controlador.controladorVentana;
 import modelo.conectar;
-import modelo.escuela;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import modelo.alumnoDAO;
-import modelo.*;
-import vista.*;
-import controlador.*;
-
 
 /**
- * Clase ventana, que hace que todo funcione, tanto botones, funciones y logica,
- * como conexión a base de datos.
+ * Clase ventana, que extiende del JFrame.
  *
  * @author CxMars
  * @version 2.0
@@ -306,9 +288,7 @@ public class Ventana extends javax.swing.JFrame {
                             .addComponent(jLabel3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnCalc)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnCalc)
                             .addComponent(txtNomb, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtPar1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtMate, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -501,17 +481,7 @@ public class Ventana extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param cali1 variable que almacena la primer calificación.
-     * @param cali2 variable que almacena la segunda calificación.
-     * @param cali3 variable que almacena la calificación generada por cali1 y
-     * cali2.
-     * @param resu variable que alimina digitos extra de cali3.
-     * @param nomb variable que recibe el nombre del alumno de la caja de texto
-     * txtNomb.
-     * @param mate variable que recibe el nombre de la materia de la caja de
-     * texto txtMate.
-     */
+
     private void btnCalcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcActionPerformed
 
     }//GEN-LAST:event_btnCalcActionPerformed
@@ -577,56 +547,9 @@ public class Ventana extends javax.swing.JFrame {
 
     private void btnProfesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProfesActionPerformed
 
-        // Enums
-        for (escuela maestros : escuela.values()) {
-
-            System.out.printf("El catedratico %s da %s, y lleva %d años dando clase.\n",
-                maestros, maestros.getMateria(), maestros.getTiempoImpartiendo());
-            System.out.println("  ------");
-        }
-
     }//GEN-LAST:event_btnProfesActionPerformed
 
     private void btnReseProfesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReseProfesActionPerformed
-
-        // Interfaces y clases abstractas
-        luis ca1 = new luis() {
-        };
-        gameros ca2 = new gameros() {
-        };
-        blanco ca3 = new blanco() {
-        };
-
-        ca1.reprueba();
-        ca1.asistencia();
-        ca1.tarea();
-        System.out.println("--");
-
-        ca2.reprueba();
-        ca2.asistencia();
-        ca2.tarea();
-        System.out.println("--");
-
-        ca3.reprueba();
-        ca3.asistencia();
-        ca3.tarea();
-        System.out.println("--");
-
-        // Herencia
-        System.out.println("");
-        analu ca4 = new analu();
-
-        ca4.reprueba();
-        ca4.asistencia();
-        ca4.tarea();
-        System.out.println("--");
-
-        // Polimorfismo
-        ampaPoli ca5 = new amparito();
-
-        ampaPoli.reprueba();
-        ampaPoli.asistencia();
-        ampaPoli.tarea();
 
     }//GEN-LAST:event_btnReseProfesActionPerformed
 
@@ -634,14 +557,13 @@ public class Ventana extends javax.swing.JFrame {
      * @param args the command line arguments
      */
 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnCalc;
     public javax.swing.JButton btnCancelar;
     public javax.swing.JButton btnGuardar;
     public javax.swing.JButton btnNuevo;
-    private javax.swing.JButton btnProfes;
-    private javax.swing.JButton btnReseProfes;
+    public javax.swing.JButton btnProfes;
+    public javax.swing.JButton btnReseProfes;
     public javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -659,7 +581,7 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JLabel lblResul;
-    private javax.swing.JTable tblDatos;
+    public javax.swing.JTable tblDatos;
     public javax.swing.JTextField txtBuscarAux;
     public javax.swing.JTextField txtMate;
     public javax.swing.JTextField txtNomb;

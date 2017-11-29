@@ -3,20 +3,20 @@ package controlador;
 import java.awt.event.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 import modelo.alumnoDAO;
 import modelo.conectar;
+import modelo.escuela;
 import vista.Ventana;
+import modelo.catedratics.*;
 
 /**
+ * Clase para que los botones funcionen, es la parte funcional del controlador
  *
  * @author CxMars
  */
@@ -25,22 +25,40 @@ public class controladorVentana implements ActionListener {
     Ventana vistaVentana = new Ventana();
     alumnoDAO modeloVentana = new alumnoDAO();
 
+    /**
+     * metodo que llama a los botones, vistas y modelos para su conexión.
+     *
+     * @param vistaVentana Ventana.java
+     * @param modeloVentana alumnoDAO.java
+     */
     public controladorVentana(Ventana vistaVentana, alumnoDAO modeloVentana) {
 
         this.vistaVentana = vistaVentana;
         this.modeloVentana = modeloVentana;
         this.vistaVentana.btnGuardar.addActionListener(this);
         this.vistaVentana.btnCalc.addActionListener(this);
+        this.vistaVentana.btnProfes.addActionListener(this);
+        this.vistaVentana.btnReseProfes.addActionListener(this);
 
     }
 
+    /**
+     * metodo controladorVentana
+     */
     public controladorVentana() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    /**
+     * reservado para su futuro eso.
+     */
     public void inicializarVentana() {
     }
 
+    /**
+     * Metodo que registra las acciones de botones accionados, se incluyen
+     * btnGuardar, btnProfes, btnReseProfes y btnCalc.
+     */
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == vistaVentana.btnGuardar) {
             conectar cc = new conectar();
@@ -104,6 +122,57 @@ public class controladorVentana implements ActionListener {
                 }
             }
 
+        }
+        if (e.getSource() == vistaVentana.btnProfes) {
+
+            // Enums
+            for (escuela maestros : escuela.values()) {
+
+                System.out.printf("El catedratico %s da %s, y lleva %d años dando clase.\n",
+                        maestros, maestros.getMateria(), maestros.getTiempoImpartiendo());
+                System.out.println("  ------");
+            }
+        }
+        if (e.getSource() == vistaVentana.btnReseProfes) {
+
+            // Interfaces y clases abstractas
+            luis ca1 = new luis() {
+            };
+            gameros ca2 = new gameros() {
+            };
+            blanco ca3 = new blanco() {
+            };
+
+            ca1.reprueba();
+            ca1.asistencia();
+            ca1.tarea();
+            System.out.println("--");
+
+            ca2.reprueba();
+            ca2.asistencia();
+            ca2.tarea();
+            System.out.println("--");
+
+            ca3.reprueba();
+            ca3.asistencia();
+            ca3.tarea();
+            System.out.println("--");
+
+            // Herencia
+            System.out.println("");
+            analu ca4 = new analu();
+
+            ca4.reprueba();
+            ca4.asistencia();
+            ca4.tarea();
+            System.out.println("--");
+
+            // Polimorfismo
+            ampaPoli ca5 = new amparito();
+
+            ampaPoli.reprueba();
+            ampaPoli.asistencia();
+            ampaPoli.tarea();
         }
     }
 
