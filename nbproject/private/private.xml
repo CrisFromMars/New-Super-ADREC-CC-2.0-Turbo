@@ -2,6 +2,11 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/cxmar/Desktop/original/conexion/src/vista/ventanaMVC.java</file>
+            <file>file:/C:/Users/cxmar/Desktop/original/conexion/src/modelo/escuela.java</file>
+            <file>file:/C:/Users/cxmar/Desktop/original/conexion/src/controlador/controladorVentana.java</file>
+            <file>file:/C:/Users/cxmar/Desktop/original/conexion/src/modelo/alumnoDAO.java</file>
+        </group>
     </open-files>
 </project-private>

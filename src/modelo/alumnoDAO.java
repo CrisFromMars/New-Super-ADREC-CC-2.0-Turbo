@@ -2,10 +2,13 @@ package modelo;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import vista.Ventana;
 
 /**
@@ -13,6 +16,8 @@ import vista.Ventana;
  * @author CxMars
  */
 public class alumnoDAO extends Ventana{
+    
+    DefaultTableModel model;
     
     public void insertarAlumno(){
     
