@@ -1,13 +1,14 @@
 package vista;
 
-import catedratics.ampaPoli;
-import catedratics.amparito;
-import catedratics.analu;
-import catedratics.blanco;
-import catedratics.gameros;
-import catedratics.luis;
+import modelo.catedratics.ampaPoli;
+import modelo.catedratics.amparito;
+import modelo.catedratics.analu;
+import modelo.catedratics.blanco;
+import modelo.catedratics.gameros;
+import modelo.catedratics.luis;
+import controlador.controladorVentana;
 import modelo.conectar;
-import formularios.escuela;
+import modelo.escuela;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +16,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import modelo.alumnoDAO;
+import modelo.*;
+import vista.*;
+import controlador.*;
+
 
 /**
  * Clase ventana, que hace que todo funcione, tanto botones, funciones y logica,
@@ -265,11 +271,6 @@ public class Ventana extends javax.swing.JFrame {
         });
 
         btnGuardar.setText("Guardar");
-        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardarActionPerformed(evt);
-            }
-        });
 
         btnCancelar.setText("Cancelar");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -580,41 +581,6 @@ public class Ventana extends javax.swing.JFrame {
         txtNomb.requestFocus();
     }//GEN-LAST:event_btnNuevoActionPerformed
 
-    /**
-     * Acción que hara la aplicación cuando reciba clic en el botón guardar,
-     * basicamente insertar los datos a la base de datos.
-     */
-    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-
-        // TODO add your handling code here:
-        conectar cc = new conectar();
-        Connection cn = cc.conexion();
-        String nom, mate, par1, par2;
-        String sql = "";
-        nom = txtNomb.getText();
-        mate = txtMate.getText();
-        par1 = txtPar1.getText();
-        par2 = txtPar2.getText();
-        sql = "INSERT INTO alumno (nomAlumno, materia, caliUnoMateria, caliDosMateria) VALUES (?,?,?,?)";
-        try {
-            PreparedStatement pst = cn.prepareStatement(sql);
-            pst.setString(1, nom);
-            pst.setString(2, mate);
-            pst.setString(3, par1);
-            pst.setString(4, par2);
-            int n = pst.executeUpdate();
-            if (n > 0) {
-                JOptionPane.showMessageDialog(null, "Registro guardado con exito");
-                bloquear();
-                cargar("");
-            }
-
-        } catch (SQLException ex) {
-            Logger.getLogger(Ventana.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }//GEN-LAST:event_btnGuardarActionPerformed
-
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
         bloquear();
@@ -710,31 +676,7 @@ public class Ventana extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Ventana.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> {
-            new Ventana().setVisible(true);
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCalc;
